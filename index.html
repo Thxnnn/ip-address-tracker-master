@@ -110,17 +110,17 @@
     
 
     function FetchIP(ip) {
-        fetch(`http://ip-api.com/json/${ip}`)
+        fetch(`https://ipwhois.app/json/${ip}`)
             .then(res => res.json())
             .then(data => {
-                if (data.lat && data.lon) {
-                    const lat = data.lat;
-                    const lon = data.lon;
+                if (data.latitude && data.longitude) {
+                    const lat = data.latitude;
+                    const lon = data.longitude;
 
                     const timeZone = data.timezone;
                     const now = new Date();
 
-                    IPaddressText.innerHTML = document.getElementById("search").value;
+                    IPaddressText.innerHTML = data.ip;
                     locationText.innerHTML = data.city +", "+data.country+" "+data.zip;
                     timezoneText.innerHTML = getUTCOffsetString(now, timeZone)
                     ispText.innerHTML = data.isp
@@ -193,7 +193,6 @@
                 
         if (isDomain(searchInput)) {
             const domain = searchInput;
-            console.log(searchInput)
             fetch(`https://dns.google/resolve?name=${searchInput}`)
             .then(res => res.json())
             .then(data => {
