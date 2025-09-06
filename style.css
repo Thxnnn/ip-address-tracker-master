@@ -1,0 +1,152 @@
+
+
+
+
+:root {
+    --veryDarkGray: hsl(0, 0%, 17%);
+    --darkGray: hsl(0, 0%, 59%);
+}
+
+
+* {
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;;
+}
+
+
+.attribution { 
+    font-size: 12px; 
+    text-align: center; 
+    margin-top: 3rem;
+    color: var(--white);
+}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+
+.header-wrapper {
+    background-image: url("images/pattern-bg-desktop.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+
+.header-item {
+    width: 50%;
+}
+
+.header-item h2 {
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
+.search-input {
+    display: flex;
+    overflow: hidden;
+}
+
+.search-input input {
+    /* flex: 1; */
+    padding: 16px;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 8px 0 0 8px;
+    width: 100%;
+}
+
+.search-input button {
+    flex: 1;
+    background-color: black;
+    padding: 16px;
+    border: 1px solid black;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.search-input button:hover {
+    background-color: var(--veryDarkGray);
+}
+
+.infomap-wrapper {
+    position: relative;
+}
+
+.infomap {
+    width: 80%;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 12px;
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 0;
+    transform: translate(0, 50%);
+    z-index: 9999;
+    box-shadow: 10px;
+}
+
+
+.infomap div {
+    width: 100%;
+    border-right: hsl(0, 0%, 59%) 1px solid;
+    padding: 0 32px;
+
+}
+
+.infomap div:last-child {
+    border-right: none;
+}
+
+.infomap div p {
+    color: var(--darkGray);
+    font-weight: 500px;
+    font-size: 14px;
+
+}
+
+@media only screen and (max-width: 500px) {
+    .header-wrapper {
+        background-image: url("images/pattern-bg-mobile.png");
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        padding-top: 20px;
+    }
+
+    .header-item {
+        width: 80%;
+    }
+
+    .infomap {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    
+    .infomap div {
+        width: 100%;
+        border-right: none;
+        text-align: center;
+        padding: 0 8px;
+    
+    }
+}
+
+
+
+
+#map {
+    height: calc(100vh - 350px);;
+}
